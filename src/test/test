@@ -1,0 +1,19 @@
+const arrLength = arr.length;
+const elRefs = React.useRef([]);
+
+if (elRefs.current.length !== arrLength) {
+  // add or remove refs
+  elRefs.current = Array(arrLength)
+    .fill()
+    .map((_, i) => elRefs.current[i] || createRef());
+}
+
+return (
+  <div>
+    {arr.map((el, i) => (
+      <div ref={elRefs.current[i]} style={...}>
+        ...
+      </div>
+    ))}
+  </div>
+);

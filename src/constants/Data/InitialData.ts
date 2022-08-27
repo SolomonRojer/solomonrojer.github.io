@@ -1,0 +1,30 @@
+export const PostInitialData = {
+  images: [],
+  title: "",
+  author: "",
+  location: "",
+  date: "",
+  profile: "",
+  userType: "",
+  description: "",
+  keywords: [],
+  isSaved: false,
+  isLiked: false,
+  id: "",
+};
+
+export const SaleInitialData = {
+  images: [],
+  title: "",
+  date: "",
+  location: "",
+  description: "",
+  keywords: [],
+  userType: "",
+  profile: "",
+  author: "",
+  price: "",
+  otherFields: [],
+  contact: "",
+  id: "",
+};
