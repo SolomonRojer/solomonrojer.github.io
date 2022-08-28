@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/PetTechApp/static/css/main.575e5238.css",
-    "main.js": "/PetTechApp/static/js/main.0f6086ef.js",
-    "static/media/product3.jpg": "/PetTechApp/static/media/product3.83346b39b02af440b99a.jpg",
-    "static/media/user1.jpg": "/PetTechApp/static/media/user1.fc0296b15f525caff81f.jpg",
-    "static/media/user2.jpg": "/PetTechApp/static/media/user2.3172159aeb1632762540.jpg",
-    "static/media/product6.webp": "/PetTechApp/static/media/product6.1fd5a39a56d7cf54e4e6.webp",
-    "static/media/product2.webp": "/PetTechApp/static/media/product2.bfe2f06939efbbfd655f.webp",
-    "static/media/product5.webp": "/PetTechApp/static/media/product5.2e56e1a89e14330ab36c.webp",
-    "static/media/product4.webp": "/PetTechApp/static/media/product4.726e3f42f99e9b88096f.webp",
-    "static/media/product1.webp": "/PetTechApp/static/media/product1.cf3d0b02100e6eaef756.webp",
-    "static/media/decoration7.svg": "/PetTechApp/static/media/decoration7.eb58c08d98f42953c5cc5b924fe9d12a.svg",
-    "static/media/decoration8.svg": "/PetTechApp/static/media/decoration8.0f18cdb884dc7a0d094be8ecebce3bfb.svg",
-    "static/media/svgpet.svg": "/PetTechApp/static/media/svgpet.85ae1ab33551bddecdca6592a72f2b02.svg",
-    "index.html": "/PetTechApp/index.html",
-    "static/media/sideName.svg": "/PetTechApp/static/media/sideName.50d966fcc8adcd4e5af9856d969b4bad.svg",
-    "main.575e5238.css.map": "/PetTechApp/static/css/main.575e5238.css.map",
-    "main.0f6086ef.js.map": "/PetTechApp/static/js/main.0f6086ef.js.map"
+    "main.css": "/static/css/main.575e5238.css",
+    "main.js": "/static/js/main.52d45731.js",
+    "static/media/product3.jpg": "/static/media/product3.83346b39b02af440b99a.jpg",
+    "static/media/user1.jpg": "/static/media/user1.fc0296b15f525caff81f.jpg",
+    "static/media/user2.jpg": "/static/media/user2.3172159aeb1632762540.jpg",
+    "static/media/product6.webp": "/static/media/product6.1fd5a39a56d7cf54e4e6.webp",
+    "static/media/product2.webp": "/static/media/product2.bfe2f06939efbbfd655f.webp",
+    "static/media/product5.webp": "/static/media/product5.2e56e1a89e14330ab36c.webp",
+    "static/media/product4.webp": "/static/media/product4.726e3f42f99e9b88096f.webp",
+    "static/media/product1.webp": "/static/media/product1.cf3d0b02100e6eaef756.webp",
+    "static/media/decoration7.svg": "/static/media/decoration7.eb58c08d98f42953c5cc5b924fe9d12a.svg",
+    "static/media/decoration8.svg": "/static/media/decoration8.0f18cdb884dc7a0d094be8ecebce3bfb.svg",
+    "static/media/svgpet.svg": "/static/media/svgpet.85ae1ab33551bddecdca6592a72f2b02.svg",
+    "index.html": "/index.html",
+    "static/media/sideName.svg": "/static/media/sideName.50d966fcc8adcd4e5af9856d969b4bad.svg",
+    "main.575e5238.css.map": "/static/css/main.575e5238.css.map",
+    "main.52d45731.js.map": "/static/js/main.52d45731.js.map"
   },
   "entrypoints": [
     "static/css/main.575e5238.css",
-    "static/js/main.0f6086ef.js"
+    "static/js/main.52d45731.js"
   ]
 }
