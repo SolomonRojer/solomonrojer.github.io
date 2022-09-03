@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 import {
   Box,
   CardContent,
@@ -14,7 +14,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-} from "@mui/material";
+} from '@mui/material'
 import {
   LocationOn,
   Pets,
@@ -22,41 +22,40 @@ import {
   TurnedIn,
   TurnedInNot,
   ArrowRight,
-} from "@mui/icons-material";
-import { useViewItemStyle } from "./ViewSaleStyle";
-import { stringToColor } from "../../../../utils/common/StringToColor";
-import SwipeImage from "../../../presentational/SwipeImage/ImageList";
-import { useAppDispatch, useAppSelector } from "../../../../store/hooks";
-import { selectData, setState } from "../../../../store/Slice/NavigationSlice";
-import { SalesData } from "../../../../utils/common/PropTypes";
-import { useLocation } from "react-router-dom";
-import ImageCarousel from "../../../presentational/Carousel/ImageCarousel";
+} from '@mui/icons-material'
+import { useViewItemStyle } from './ViewSaleStyle'
+import { stringToColor } from '../../../../utils/common/StringToColor'
+import { useAppDispatch, useAppSelector } from '../../../../store/hooks'
+import { selectData, setState } from '../../../../store/Slice/NavigationSlice'
+import { SalesData } from '../../../../utils/common/PropTypes'
+import { useLocation } from 'react-router-dom'
+import ImageCarousel from '../../../presentational/Carousel/ImageCarousel'
 
 type ViewSaleXSProps = {
-  item: SalesData;
-};
+  item: SalesData
+}
 
 const ViewSaleXS: React.FC = (props) => {
-  const classes = useViewItemStyle();
-  const dispatch = useAppDispatch();
-  const header = useAppSelector(selectData);
+  const classes = useViewItemStyle()
+  const dispatch = useAppDispatch()
+  const header = useAppSelector(selectData)
 
-  const location = useLocation();
-  const { item } = location.state as ViewSaleXSProps;
+  const location = useLocation()
+  const { item } = location.state as ViewSaleXSProps
 
   useEffect(() => {
-    dispatch(setState({ prevValue: header.value, value: 6, headerTitle: "" }));
-    window.scrollTo(0, 0);
-  }, []);
+    dispatch(setState({ prevValue: header.value, value: 6, headerTitle: '' }))
+    window.scrollTo(0, 0)
+  }, [dispatch, header.value])
 
   return (
-    <Grid container style={{ marginTop: "7%" }}>
+    <Grid container style={{ marginTop: '7%' }}>
       <Grid item xs={12}>
         <Box
           style={{
-            width: "100%",
-            height: "20rem",
-            backgroundColor: "#eee",
+            width: '100%',
+            height: '20rem',
+            backgroundColor: '#eee',
           }}
         >
           <ImageCarousel
@@ -69,15 +68,15 @@ const ViewSaleXS: React.FC = (props) => {
       <Grid item xs={12}>
         <CardContent
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            height: "32rem",
+            display: 'flex',
+            flexDirection: 'column',
+            height: '32rem',
           }}
         >
           <Box>
             <CardActions
               className={classes.CardIcons}
-              style={{ marginTop: "-5%" }}
+              style={{ marginTop: '-5%' }}
             >
               <Box>
                 <Checkbox
@@ -98,23 +97,23 @@ const ViewSaleXS: React.FC = (props) => {
           <Box>
             <Box
               style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
               }}
             >
               <Box>
                 <Typography
                   component="div"
                   variant="h6"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: 'bold' }}
                 >
                   {item?.title}
                 </Typography>
                 <Typography
                   component="div"
                   variant="subtitle1"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: 'bold' }}
                 >
                   {item?.price}
                 </Typography>
@@ -124,9 +123,9 @@ const ViewSaleXS: React.FC = (props) => {
             {item?.otherFields?.length && (
               <Box
                 sx={{
-                  "& > :not(style)": { m: 0.5 },
+                  '& > :not(style)': { m: 0.5 },
                 }}
-                style={{ marginTop: "2%" }}
+                style={{ marginTop: '2%' }}
               >
                 <Divider />
                 <List>
@@ -147,7 +146,7 @@ const ViewSaleXS: React.FC = (props) => {
 
             <Box
               style={{
-                marginBlock: "4%",
+                marginBlock: '4%',
               }}
             >
               <Typography
@@ -161,9 +160,9 @@ const ViewSaleXS: React.FC = (props) => {
               {item?.keywords?.length && (
                 <Box
                   sx={{
-                    "& > :not(style)": { m: 0.5 },
+                    '& > :not(style)': { m: 0.5 },
                   }}
-                  style={{ marginTop: "2%" }}
+                  style={{ marginTop: '2%' }}
                 >
                   {item?.keywords?.map((ele, i) => (
                     <Chip
@@ -177,9 +176,9 @@ const ViewSaleXS: React.FC = (props) => {
               )}
             </Box>
             <Divider />
-            <Box style={{ marginBlock: "4%" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <IconButton onClick={() => alert("Profile")}>
+            <Box style={{ marginBlock: '4%' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <IconButton onClick={() => alert('Profile')}>
                   <Avatar
                     sx={{
                       width: 30,
@@ -201,12 +200,12 @@ const ViewSaleXS: React.FC = (props) => {
             </Box>
 
             {item?.contact && (
-              <Box sx={{ marginBlock: "1rem" }}>
+              <Box sx={{ marginBlock: '1rem' }}>
                 <Typography
                   variant="body1"
                   color="text.secondary"
                   component="div"
-                  sx={{ fontWeight: "bold" }}
+                  sx={{ fontWeight: 'bold' }}
                 >
                   Contact Owner : {item?.contact}
                 </Typography>
@@ -215,9 +214,9 @@ const ViewSaleXS: React.FC = (props) => {
             <Box>
               <Box
                 style={{
-                  marginTop: "2%",
-                  display: "flex",
-                  alignItems: "center",
+                  marginTop: '2%',
+                  display: 'flex',
+                  alignItems: 'center',
                 }}
               >
                 <LocationOn sx={{ fontSize: 15 }} color="disabled" />
@@ -233,7 +232,7 @@ const ViewSaleXS: React.FC = (props) => {
         </CardContent>
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default ViewSaleXS;
+export default ViewSaleXS

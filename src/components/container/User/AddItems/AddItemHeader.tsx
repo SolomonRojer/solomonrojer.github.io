@@ -1,4 +1,4 @@
-import React, { Dispatch } from "react";
+import React from "react";
 import { CardHeader, IconButton, Avatar, Button } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 import { stringToColor } from "../../../../utils/common/StringToColor";

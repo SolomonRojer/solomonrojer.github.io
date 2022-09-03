@@ -1,6 +1,6 @@
 import { AddRounded } from "@mui/icons-material";
 import { Box, Tab, Tabs, Typography } from "@mui/material";
-import React, { Dispatch, FC } from "react";
+import React, { FC } from "react";
 import PopupDialog from "../../../../presentational/Popup/Popup";
 import { TabPanelProps, AddPostAndProductProps } from "../AddItemProps";
 import { useAddItemsStyle } from "../AddItemsStyle";

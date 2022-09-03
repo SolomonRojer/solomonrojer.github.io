@@ -32,7 +32,7 @@ const HomeContainer: React.FC<HomeProps> = ({
         headerTitle: type === "sale" ? "PetTech" : "Posts",
       })
     );
-  }, [header, dispatch]);
+  }, [header, dispatch, type]);
 
   React.useEffect(() => {
     window.scrollTo(0, 0);
@@ -67,8 +67,7 @@ const HomeContainer: React.FC<HomeProps> = ({
           />
         </Tabs>
       </Hidden>
-      <Box className={className}>{children}</Box>
-      {/* <Authentication open={open} setOpen={setOpen} type="register" /> */}
+      <Box className={className}>{children}</Box>      
     </Box>
   );
 };

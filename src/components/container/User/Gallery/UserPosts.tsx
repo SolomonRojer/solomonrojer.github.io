@@ -1,6 +1,6 @@
-import * as React from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import * as React from 'react'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
 import {
   ImageListItemBar,
   IconButton,
@@ -8,60 +8,64 @@ import {
   Fade,
   Chip,
   Avatar,
-} from "@mui/material";
-import { Delete, Star } from "@mui/icons-material";
-import { useProfileStyles } from "../Profile/UserProfileStyle";
-import { stringToColor } from "../../../../utils/common/StringToColor";
-import type { UserPostsProps } from "./userDataProps";
-import { PostInitialData } from "../../../../constants/Data/InitialData";
-import ViewPost from "../../ViewItems/Post/ViewPostMD";
-import type { PostData } from "../../../../utils/common/PropTypes";
-import { useNavigate } from "react-router-dom";
-import AlertDialog from "../../../presentational/AlertDialog/ConfirmationDialog";
+} from '@mui/material'
+import { Delete, Star } from '@mui/icons-material'
+import { useProfileStyles } from '../Profile/UserProfileStyle'
+import { stringToColor } from '../../../../utils/common/StringToColor'
+import type { UserPostsProps } from './userDataProps'
+import { PostInitialData } from '../../../../constants/Data/InitialData'
+import ViewPost from '../../ViewItems/Post/ViewPostMD'
+import type { PostData } from '../../../../utils/common/PropTypes'
+import { useNavigate } from 'react-router-dom'
+import AlertDialog from '../../../presentational/AlertDialog/ConfirmationDialog'
 
 const UserPosts: React.FC<UserPostsProps> = ({
-  typeOfItem = "userpost",
+  typeOfItem = 'userpost',
   dataItems = [],
   cols = 4,
-  view = "md",
+  view = 'md',
 }) => {
-  const classes = useProfileStyles();
-  const navigate = useNavigate();
+  const classes = useProfileStyles()
+  const navigate = useNavigate()
 
-  const [viewItem, setViewItem] = React.useState(false);
-  const [alertDialog, setAlertDialog] = React.useState(false);
-  const [removeId, setRemoveId] = React.useState("");
+  const [viewItem, setViewItem] = React.useState(false)
+  const [alertDialog, setAlertDialog] = React.useState(false)
 
-  const [viewPostItem, setViewPostItem] =
-    React.useState<PostData>(PostInitialData);
+  const [viewPostItem, setViewPostItem] = React.useState<PostData>(
+    PostInitialData,
+  )
 
   const handleOnClickPost = (item: PostData) => {
-    setViewPostItem(item);
-    view === "md"
+    setViewPostItem(item)
+    view === 'md'
       ? setViewItem(true)
-      : navigate("/view", {
-          state: { type: "post", item: dataItems, id: "1", editable: true },
-        });
-  };
+      : navigate('/view', {
+          state: { type: 'post', item: dataItems, id: '1', editable: true },
+        })
+  }
 
   const RemovePostConfirmation = (id: string) => {
-    setAlertDialog(true);
-  };
+    setAlertDialog(true)
+  }
 
   const RemovePost = () => {
     // remove with removeId
-    setAlertDialog(false);
-  };
+    setAlertDialog(false)
+  }
 
   return (
     <div>
       <ImageList
-        sx={{ width: "100%", marginBottom: view === "xs" ? "4rem" : 0 }}
+        sx={{ width: '100%', marginBottom: view === 'xs' ? '4rem' : 0 }}
         variant="quilted"
         cols={cols}
       >
         {dataItems.map((item, i) => (
-          <Fade in={true} style={{ transitionDelay: `${100 * i}ms` }} key={i}>
+          <Fade
+            in={true}
+            style={{ transitionDelay: view === 'md' ? `${100 * i}ms` : '0' }}
+            key={item.id}
+          >
             <ImageListItem key={item.title}>
               <img
                 src={`${item.images[0]}?w=248&fit=crop&auto=format`}
@@ -69,19 +73,19 @@ const UserPosts: React.FC<UserPostsProps> = ({
                 alt={item.title}
                 loading="lazy"
                 onClick={() => handleOnClickPost(item)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: 'pointer' }}
               />
               {cols === 4 && (
                 <ImageListItemBar
                   sx={{
                     background:
-                      "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
-                      "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+                      'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                      'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
                   }}
                   title={
                     <Typography
                       sx={{ fontSize: 12 }}
-                      align={typeOfItem === "userpost" ? "left" : "right"}
+                      align={typeOfItem === 'userpost' ? 'left' : 'right'}
                     >
                       {item.title}
                     </Typography>
@@ -89,26 +93,26 @@ const UserPosts: React.FC<UserPostsProps> = ({
                   subtitle={
                     <Typography
                       sx={{ fontSize: 10 }}
-                      align={typeOfItem === "userpost" ? "left" : "right"}
+                      align={typeOfItem === 'userpost' ? 'left' : 'right'}
                     >
                       {item.date}
                     </Typography>
                   }
                   position="top"
                   actionIcon={
-                    typeOfItem === "userpost" ? (
+                    typeOfItem === 'userpost' ? (
                       <IconButton
                         aria-label="more"
                         id="long-button"
-                        sx={{ color: "rgba(255,255,255,0.5)" }}
+                        sx={{ color: 'rgba(255,255,255,0.5)' }}
                         onClick={() => RemovePostConfirmation(item.title)}
                       >
                         <Delete />
                       </IconButton>
                     ) : (
                       <Chip
-                        onClick={() => navigate("/profile")}
-                        style={{ cursor: "pointer" }}
+                        onClick={() => navigate('/profile')}
+                        style={{ cursor: 'pointer' }}
                         avatar={
                           <Avatar
                             src={item?.profile}
@@ -124,11 +128,11 @@ const UserPosts: React.FC<UserPostsProps> = ({
                             color="secondary"
                             sx={{
                               fontSize: 12,
-                              display: "flex",
-                              alignItems: "center",
+                              display: 'flex',
+                              alignItems: 'center',
                             }}
                           >
-                            {item?.userType === "admin" ? (
+                            {item?.userType === 'admin' ? (
                               <>
                                 <Typography
                                   sx={{ fontSize: 12 }}
@@ -143,11 +147,11 @@ const UserPosts: React.FC<UserPostsProps> = ({
                             )}
                           </Typography>
                         }
-                        sx={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                        sx={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
                       />
                     )
                   }
-                  actionPosition={typeOfItem === "userpost" ? "right" : "left"}
+                  actionPosition={typeOfItem === 'userpost' ? 'right' : 'left'}
                 />
               )}
             </ImageListItem>
@@ -165,7 +169,7 @@ const UserPosts: React.FC<UserPostsProps> = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserPosts;
+export default UserPosts

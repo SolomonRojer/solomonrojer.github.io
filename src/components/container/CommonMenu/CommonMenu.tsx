@@ -1,14 +1,11 @@
-import React, { useState, FC } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Hidden } from "@mui/material";
-import { useAppBarStyles } from "./CommonMenuStyle";
 import AddPostAndProductMD from "../User/AddItems/LargeView/AddItems";
-import AddPostAndProductXS from "../User/AddItems/SmallView/AddItems";
 import { FullBar, SmallBar } from "./AppBar";
 import BottomNavigationBar from "./BottomBar";
 
 const NavBar = () => {
-  const classes = useAppBarStyles();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);

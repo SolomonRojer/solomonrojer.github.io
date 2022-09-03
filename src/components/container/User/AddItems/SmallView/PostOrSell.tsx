@@ -2,16 +2,12 @@ import React, { useEffect } from "react";
 import {
   Avatar,
   Box,
-  Card,
-  Divider,
   IconButton,
   Typography,
 } from "@mui/material";
-import { useAddItemsStyle } from "../AddItemsStyle";
 import SwipeImage from "../../../../presentational/SwipeImage/ImageList";
 import { AddItemBody, AddItemBodyNext } from "../AddItemsBody";
 import { AddMoreField, AddPostOrSellProps, KeywordData } from "../AddItemProps";
-import AddItemHeader from "../AddItemHeader";
 import { LibraryAddCheckRounded } from "@mui/icons-material";
 import { stringToColor } from "../../../../../utils/common/StringToColor";
 
@@ -20,8 +16,7 @@ const SharePost: React.FC<AddPostOrSellProps> = ({
   value,
   count,
   editItem,
-}) => {
-  const classes = useAddItemsStyle();
+}) => {  
 
   const [keywords, setKeyword] = React.useState<KeywordData[]>([]);
   const [keywordValue, setKeywordValue] = React.useState<string>("");
@@ -54,7 +49,7 @@ const SharePost: React.FC<AddPostOrSellProps> = ({
     } else {
       if (productImagesBackUp.length) setProductImages(productImagesBackUp);
     }
-  }, [value]);
+  }, [imageLength, productImages, productImagesBackUp, value]);
 
   const handleKeywordDelete = (keywordToRemove: KeywordData) => {
     setKeyword((items) =>
@@ -138,7 +133,7 @@ const SharePost: React.FC<AddPostOrSellProps> = ({
             >
               <img
                 src={productImages[0]}
-                alt="Image"
+                alt="loading..."
                 style={{ height: "4rem", width: "4rem" }}
               />
               {productImages.length > 1 && (

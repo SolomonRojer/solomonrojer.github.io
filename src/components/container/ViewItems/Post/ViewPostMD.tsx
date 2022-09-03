@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import {
   Box,
-  CardContent,
-  CardMedia,
+  CardContent,  
   Card,
   IconButton,
   Avatar,

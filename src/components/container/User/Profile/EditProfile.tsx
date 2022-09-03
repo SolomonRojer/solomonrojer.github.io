@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   Box,
   Fab,
@@ -9,11 +9,10 @@ import {
   Button,
   TextField,
   InputAdornment,
-  Hidden,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
-import IconButton from "@mui/material/IconButton";
+} from '@mui/material'
+import IconButton from '@mui/material/IconButton'
 import {
   LocationOn,
   Phone,
@@ -23,46 +22,47 @@ import {
   Email,
   Description,
   VerifiedUser,
-} from "@mui/icons-material";
-import { useAuthenticationStyle } from "../../Authentication/AuthenticatioStyle";
-import { stringToColor } from "../../../../utils/common/StringToColor";
-import PopupDialog from "../../../presentational/Popup/Popup";
-import { useNavigate } from "react-router-dom";
+} from '@mui/icons-material'
+import { useAuthenticationStyle } from '../../Authentication/AuthenticatioStyle'
+import { stringToColor } from '../../../../utils/common/StringToColor'
+import PopupDialog from '../../../presentational/Popup/Popup'
+import { useNavigate } from 'react-router-dom'
+import { images } from '../../../../constants/images'
 
 const EditMD = () => {
-  const classes = useAuthenticationStyle();
+  const classes = useAuthenticationStyle()
 
   return (
     <Box className={classes.cardContainer}>
       <Box
         sx={{
-          display: "flex",
+          display: 'flex',
           flexGrow: 1,
-          flexDirection: "column",
-          alignItems: "center",
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Typography
           variant="h6"
-          style={{ fontWeight: "bold", marginBottom: "5%" }}
+          style={{ fontWeight: 'bold', marginBottom: '5%' }}
         >
           Edit Profile
         </Typography>
-        <Box style={{ position: "relative" }}>
+        <Box style={{ position: 'relative' }}>
           <Avatar
-            src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6"
+            src={images.profile}
             alt="Reshna"
             sx={{
-              bgcolor: stringToColor("Reshna"),
-              height: "10rem",
-              width: "10rem",
+              bgcolor: stringToColor('Reshna'),
+              height: '10rem',
+              width: '10rem',
             }}
           />
 
           <Fab
             size="small"
             aria-label="edit"
-            style={{ position: "absolute", bottom: 0, right: 0 }}
+            style={{ position: 'absolute', bottom: 0, right: 0 }}
             component="label"
           >
             <input hidden accept="image/*" type="file" />
@@ -71,16 +71,16 @@ const EditMD = () => {
         </Box>
         <CardContent
           style={{
-            display: "flex",
-            justifyContent: "space-around",
-            alignItems: "center",
+            display: 'flex',
+            justifyContent: 'space-around',
+            alignItems: 'center',
           }}
           sx={{ gap: 4 }}
         >
           <Box
             component="form"
             sx={{
-              "& > :not(style)": { m: 2 },
+              '& > :not(style)': { m: 2 },
             }}
             noValidate
             autoComplete="off"
@@ -151,7 +151,7 @@ const EditMD = () => {
           <Box
             component="form"
             sx={{
-              "& > :not(style)": { m: 2 },
+              '& > :not(style)': { m: 2 },
             }}
             noValidate
             autoComplete="off"
@@ -235,36 +235,36 @@ const EditMD = () => {
         </Button>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 const EditXS = () => {
-  const classes = useAuthenticationStyle();
+  const classes = useAuthenticationStyle()
 
   return (
     <Box className={classes.cardContainer}>
       <Box
         sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
-        <Box style={{ position: "relative" }}>
+        <Box style={{ position: 'relative' }}>
           <Avatar
-            src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6"
+            src={images.profile}
             alt="Reshna"
             sx={{
-              bgcolor: stringToColor("Reshna"),
-              height: "8rem",
-              width: "8rem",
+              bgcolor: stringToColor('Reshna'),
+              height: '8rem',
+              width: '8rem',
             }}
           />
 
           <Fab
             size="small"
             aria-label="edit"
-            style={{ position: "absolute", bottom: 0, right: 0 }}
+            style={{ position: 'absolute', bottom: 0, right: 0 }}
             component="label"
           >
             <input hidden accept="image/*" type="file" />
@@ -275,7 +275,7 @@ const EditXS = () => {
           <Box
             component="form"
             sx={{
-              "& > :not(style)": { m: 1 },
+              '& > :not(style)': { m: 1 },
             }}
             noValidate
             autoComplete="off"
@@ -420,31 +420,31 @@ const EditXS = () => {
         </Button>
       </Box>
     </Box>
-  );
-};
+  )
+}
 
 export default function EditProfile() {
-  const [open, setOpen] = React.useState(true);
-  const goBackNavigate = useNavigate();
-  const theme = useTheme();
-  const isXS = useMediaQuery(theme.breakpoints.down("md"));
+  const [open, setOpen] = React.useState(true)
+  const goBackNavigate = useNavigate()
+  const theme = useTheme()
+  const isXS = useMediaQuery(theme.breakpoints.down('md'))
 
   React.useEffect(() => {
     if (!open) {
-      goBackNavigate(-1);
+      goBackNavigate(-1)
     }
-  }, [open]);
+  }, [goBackNavigate, open])
 
   return (
     <PopupDialog
       open={open}
       setOpen={setOpen}
-      title={isXS ? "Edit Profile" : ""}
+      title={isXS ? 'Edit Profile' : ''}
       disableAction
       fullScreen
       scroll={undefined}
     >
       {isXS ? <EditXS /> : <EditMD />}
     </PopupDialog>
-  );
+  )
 }

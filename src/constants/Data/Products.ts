@@ -1,15 +1,12 @@
-import product1 from "../../assets/images/products/product1.webp";
-import product2 from "../../assets/images/products/product2.webp";
-import product3 from "../../assets/images/products/product3.jpg";
-import product4 from "../../assets/images/products/product4.webp";
-import product5 from "../../assets/images/products/product5.webp";
-import product6 from "../../assets/images/products/product6.webp";
-
-import { UserImages } from "../images";
+import { UserImages, petImages } from "../images";
 
 export const Posts = [
   {
-    images: [product1, product2, product3],
+    images: [
+      petImages.petImages[0],
+      petImages.petImages[1],
+      petImages.petImages[2],
+    ],
     title: "Breakfast",
     author: "bkristastucchio000000000000000000000000000000000",
     location: "Chennai",
@@ -24,7 +21,13 @@ export const Posts = [
     id: "1",
   },
   {
-    images: [product1, product2, product3, product4, product5],
+    images: [
+      petImages.petImages[0],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+      petImages.petImages[4],
+    ],
     title: "Burger",
     location: "Chennai",
     date: "Septiom 14, 2020",
@@ -39,7 +42,11 @@ export const Posts = [
     id: "2",
   },
   {
-    images: [product6, product1, product5],
+    images: [
+      petImages.petImages[5],
+      petImages.petImages[0],
+      petImages.petImages[4],
+    ],
     title: "Camera",
     author: "@helloimnik",
     location: "Chennai",
@@ -54,7 +61,7 @@ export const Posts = [
     id: "3",
   },
   {
-    images: [product2],
+    images: [petImages.petImages[1]],
     title: "Coffee",
     author: "@nolanissac",
     location: "Chennai",
@@ -69,7 +76,7 @@ export const Posts = [
     id: "4",
   },
   {
-    images: [product3, product2],
+    images: [petImages.petImages[2], petImages.petImages[1]],
     title: "Hats",
     author: "@hjrc33",
     location: "Chennai",
@@ -84,7 +91,12 @@ export const Posts = [
     id: "5",
   },
   {
-    images: [product5, product6, product3, product4],
+    images: [
+      petImages.petImages[4],
+      petImages.petImages[5],
+      petImages.petImages[2],
+      petImages.petImages[3],
+    ],
     title: "Honey",
     author: "@arwinneil",
     location: "Chennai",
@@ -99,7 +111,12 @@ export const Posts = [
     id: "6",
   },
   {
-    images: [product4, product2, product3, product6],
+    images: [
+      petImages.petImages[3],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[5],
+    ],
     title: "Basketball",
     author: "@tjdragotta",
     location: "Chennai",
@@ -114,7 +131,12 @@ export const Posts = [
     id: "7",
   },
   {
-    images: [product5, product2, product3, product4],
+    images: [
+      petImages.petImages[4],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+    ],
     title: "Fern",
     author: "@katie_wasserman",
     location: "Chennai",
@@ -129,7 +151,13 @@ export const Posts = [
     id: "8",
   },
   {
-    images: [product6, product2, product3, product4, product5],
+    images: [
+      petImages.petImages[5],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+      petImages.petImages[4],
+    ],
     title: "Mushrooms",
     author: "@silverdalex",
     profile: UserImages.userImages[0],
@@ -144,7 +172,13 @@ export const Posts = [
     id: "9",
   },
   {
-    images: [product3, product2, product6, product4, product5],
+    images: [
+      petImages.petImages[2],
+      petImages.petImages[1],
+      petImages.petImages[5],
+      petImages.petImages[3],
+      petImages.petImages[4],
+    ],
     title: "Tomato basil",
     author: "@shelleypauls",
     location: "Chennai",
@@ -159,7 +193,13 @@ export const Posts = [
     id: "10",
   },
   {
-    images: [product5, product2, product3, product4, product6],
+    images: [
+      petImages.petImages[4],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+      petImages.petImages[5],
+    ],
     title: "Sea star",
     author: "@peterlaster",
     location: "Chennai",
@@ -174,7 +214,12 @@ export const Posts = [
     id: "11",
   },
   {
-    images: [product3, product2, product4, product5],
+    images: [
+      petImages.petImages[2],
+      petImages.petImages[1],
+      petImages.petImages[3],
+      petImages.petImages[4],
+    ],
     title: "Bike",
     author: "@southside_customs",
     location: "Chennai",
@@ -192,7 +237,7 @@ export const Posts = [
 
 export const Products = [
   {
-    images: [product3],
+    images: [petImages.petImages[2]],
     title: "Breakfast",
     author: "bkristastucchio000000000000000000000000000000000",
     location: "Chennai",
@@ -209,7 +254,7 @@ export const Products = [
     id: "1",
   },
   {
-    images: [product1, product2],
+    images: [petImages.petImages[0], petImages.petImages[1]],
     title: "Burger",
     location: "Chennai",
     date: "Septiom 14, 2020",
@@ -226,7 +271,11 @@ export const Products = [
     id: "2",
   },
   {
-    images: [product2, product3, product4],
+    images: [
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+    ],
     title: "Camera",
     author: "@helloimnik",
     location: "Chennai",
@@ -243,7 +292,7 @@ export const Products = [
     id: "3",
   },
   {
-    images: [product4, product5],
+    images: [petImages.petImages[3], petImages.petImages[4]],
     title: "Coffee",
     author: "@nolanissac",
     cols: 2,
@@ -261,7 +310,12 @@ export const Products = [
     id: "4",
   },
   {
-    images: [product5, product6, product3, product1],
+    images: [
+      petImages.petImages[4],
+      petImages.petImages[5],
+      petImages.petImages[2],
+      petImages.petImages[0],
+    ],
     title: "Hats",
     author: "@hjrc33",
     cols: 2,
@@ -279,7 +333,12 @@ export const Products = [
     id: "5",
   },
   {
-    images: [product6, product5, product1, product2],
+    images: [
+      petImages.petImages[5],
+      petImages.petImages[4],
+      petImages.petImages[0],
+      petImages.petImages[1],
+    ],
     title: "Honey",
     author: "@arwinneil",
     rows: 2,
@@ -299,7 +358,13 @@ export const Products = [
     id: "6",
   },
   {
-    images: [product1, product2, product3, product4, product6],
+    images: [
+      petImages.petImages[0],
+      petImages.petImages[1],
+      petImages.petImages[2],
+      petImages.petImages[3],
+      petImages.petImages[5],
+    ],
     title: "Basketball",
     author: "@tjdragotta",
     location: "Chennai",
@@ -316,7 +381,12 @@ export const Products = [
     id: "7",
   },
   {
-    images: [product3, product4, product5, product2],
+    images: [
+      petImages.petImages[2],
+      petImages.petImages[3],
+      petImages.petImages[4],
+      petImages.petImages[1],
+    ],
     title: "Fern",
     author: "@katie_wasserman",
     location: "Chennai",
@@ -333,7 +403,7 @@ export const Products = [
     id: "8",
   },
   {
-    images: [product2, product4],
+    images: [petImages.petImages[1], petImages.petImages[3]],
     title: "Mushrooms",
     author: "@silverdalex",
     rows: 2,
@@ -352,7 +422,11 @@ export const Products = [
     id: "9",
   },
   {
-    images: [product6, product5, product3],
+    images: [
+      petImages.petImages[5],
+      petImages.petImages[4],
+      petImages.petImages[2],
+    ],
     title: "Tomato basil",
     author: "@shelleypauls",
     location: "Chennai",
@@ -369,7 +443,11 @@ export const Products = [
     id: "10",
   },
   {
-    images: [product1, product4, product6],
+    images: [
+      petImages.petImages[0],
+      petImages.petImages[3],
+      petImages.petImages[5],
+    ],
     title: "Sea star",
     author: "@peterlaster",
     location: "Chennai",
@@ -386,7 +464,11 @@ export const Products = [
     id: "11",
   },
   {
-    images: [product3, product5, product1],
+    images: [
+      petImages.petImages[2],
+      petImages.petImages[4],
+      petImages.petImages[0],
+    ],
     title: "Bike",
     author: "@southside_customs",
     cols: 2,

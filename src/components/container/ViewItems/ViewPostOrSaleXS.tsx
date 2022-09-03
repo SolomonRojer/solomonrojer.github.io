@@ -1,20 +1,20 @@
-import { Tabs, Box, Tab, Typography, Hidden } from "@mui/material";
-import * as React from "react";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { selectData, setState } from "../../../store/Slice/NavigationSlice";
-import { PostData, SalesData } from "../../../utils/common/PropTypes";
-import { Sale } from "../Home/Product/Sale";
-import { Post } from "../Home/Product/Posts";
-import { useLocation } from "react-router";
+import { Box, Typography } from '@mui/material'
+import * as React from 'react'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { selectData, setState } from '../../../store/Slice/NavigationSlice'
+import { PostData, SalesData } from '../../../utils/common/PropTypes'
+import { Sale } from '../Home/Product/Sale'
+import { Post } from '../Home/Product/Posts'
+import { useLocation } from 'react-router'
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  type: string;
-  value: string;
+  children?: React.ReactNode
+  type: string
+  value: string
 }
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, type, ...other } = props;
+  const { children, value, type, ...other } = props
 
   return (
     <div
@@ -26,46 +26,46 @@ function TabPanel(props: TabPanelProps) {
     >
       {value === type && <Typography>{children}</Typography>}
     </div>
-  );
+  )
 }
 interface ViewPostOrSaleProps {
-  type: string;
-  item: PostData[] | SalesData[];
-  id: string;
-  editable: boolean;
+  type: string
+  item: PostData[] | SalesData[]
+  id: string
+  editable: boolean
 }
 
 const ViewPostOrSale: React.FC = (props) => {
-  const dispatch = useAppDispatch();
-  const header = useAppSelector(selectData);
-  const location = useLocation();
-  const state = location.state as ViewPostOrSaleProps;
+  const dispatch = useAppDispatch()
+  const header = useAppSelector(selectData)
+  const location = useLocation()
+  const state = location.state as ViewPostOrSaleProps
 
   React.useEffect(() => {
     let headerValue = 0,
-      headerTitle = "";
+      headerTitle = ''
 
-    if (state.type === "post") {
-      headerValue = 3;
-      headerTitle = "Posts";
+    if (state.type === 'post') {
+      headerValue = 3
+      headerTitle = 'Posts'
     } else {
-      headerValue = 4;
-      headerTitle = "Sales";
+      headerValue = 4
+      headerTitle = 'Sales'
     }
-    if (!state.editable) headerValue = 5;
+    if (!state.editable) headerValue = 5
 
-    dispatch(setState({ prevValue: header.value, value: headerValue }));
-    dispatch(setState({ headerTitle }));
-  }, [state, dispatch]);
+    dispatch(setState({ prevValue: header.value, value: headerValue }))
+    dispatch(setState({ headerTitle }))
+  }, [state, dispatch, header.value])
 
   React.useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [state]);
+    window.scrollTo(0, 0)
+  }, [state])
 
   return (
-    <Box style={{ marginTop: "1%", position: "relative" }}>
+    <Box style={{ marginTop: '1%', position: 'relative' }}>
       <TabPanel value={state.type} type="post">
-        <Box style={{ marginTop: "10%", marginBottom: "15%" }}>
+        <Box style={{ marginTop: '10%', marginBottom: '15%' }}>
           <Post
             view="xs"
             PostItems={state.item as PostData[]}
@@ -74,7 +74,7 @@ const ViewPostOrSale: React.FC = (props) => {
         </Box>
       </TabPanel>
       <TabPanel value={state.type} type="sale">
-        <Box style={{ marginBlock: "13%" }}>
+        <Box style={{ marginBlock: '13%' }}>
           <Sale
             view="xs"
             salesItems={state.item as SalesData[]}
@@ -83,7 +83,7 @@ const ViewPostOrSale: React.FC = (props) => {
         </Box>
       </TabPanel>
     </Box>
-  );
-};
+  )
+}
 
-export default ViewPostOrSale;
+export default ViewPostOrSale

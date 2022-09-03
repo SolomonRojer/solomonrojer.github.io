@@ -27,15 +27,7 @@ const ProfileMenu: FC<ProfileProps> = ({ navigate }) => {
             alt="Remy Sharp"
             src="/static/images/avatar/2.jpg"
           />
-        </IconButton>
-        {/* <Typography
-          component="div"
-          style={{
-            fontSize: 11,
-          }}
-        >
-          UserName
-        </Typography> */}
+        </IconButton>       
       </Box>
     </>
   );

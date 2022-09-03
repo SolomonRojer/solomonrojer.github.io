@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect } from 'react'
 import {
   Box,
   Typography,
@@ -8,55 +8,55 @@ import {
   ImageList,
   ImageListItem,
   ImageListItemBar,
-} from "@mui/material";
+} from '@mui/material'
 import {
   BookmarkSharp,
   CropOriginal,
   GridViewSharp,
   LocalOffer,
   LoyaltySharp,
-} from "@mui/icons-material";
-import { useProfileStyles } from "./Profile/UserProfileStyle";
-import UserPosts from "./Gallery/UserPosts";
-import UserSales from "./Gallery/UserSales";
-import UserFavorites from "./Gallery/UserSaved";
+} from '@mui/icons-material'
+import { useProfileStyles } from './Profile/UserProfileStyle'
+import UserPosts from './Gallery/UserPosts'
+import UserSales from './Gallery/UserSales'
+import UserFavorites from './Gallery/UserSaved'
 import {
   UserPosts as ProfilePosts,
   UserProducts,
-} from "../../../constants/Data/Users";
+} from '../../../constants/Data/Users'
 import {
   Products as FavoriteProduct,
   Posts as FavoritePost,
-} from "../../../constants/Data/Products";
-import { ProfileCardMD } from "./Profile/ProfileCard/ProfileCardMD";
-import { ProfileCardXS } from "./Profile/ProfileCard/ProfileCardXS";
-import Toggle from "../../presentational/ToggleBar/ToggleBar";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { selectData, setState } from "../../../store/Slice/NavigationSlice";
-import { PostData, SalesData } from "../../../utils/common/PropTypes";
-import { useNavigate } from "react-router";
+} from '../../../constants/Data/Products'
+import { ProfileCardMD } from './Profile/ProfileCard/ProfileCardMD'
+import { ProfileCardXS } from './Profile/ProfileCard/ProfileCardXS'
+import Toggle from '../../presentational/ToggleBar/ToggleBar'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import { selectData, setState } from '../../../store/Slice/NavigationSlice'
+import { PostData, SalesData } from '../../../utils/common/PropTypes'
+import { useNavigate } from 'react-router'
 
 interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
+  children?: React.ReactNode
+  index: number
+  value: number
 }
 
 const ToggleComponents = [
   {
     icon: <LocalOffer sx={{ fontSize: 15, marginRigt: 0.5 }} />,
-    text: "Sales",
+    text: 'Sales',
   },
   {
     icon: <CropOriginal sx={{ fontSize: 15, marginRigt: 0.5 }} />,
-    text: "Posts",
+    text: 'Posts',
   },
-];
+]
 
-const { innerHeight } = window;
+const { innerHeight } = window
 
 function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = props
 
   return (
     <div
@@ -68,58 +68,58 @@ function TabPanel(props: TabPanelProps) {
     >
       <div
         style={{
-          visibility: value === index ? "visible" : "hidden",
+          visibility: value === index ? 'visible' : 'hidden',
           minHeight: innerHeight - 100,
         }}
       >
         {children}
       </div>
     </div>
-  );
+  )
 }
 
 export function GalleryTab() {
-  const classes = useProfileStyles();
-  const dispatch = useAppDispatch();
-  const header = useAppSelector(selectData);
-  const navigate = useNavigate();
+  const classes = useProfileStyles()
+  const dispatch = useAppDispatch()
+  const header = useAppSelector(selectData)
+  const navigate = useNavigate()
 
-  const [value, setValue] = React.useState(header.profileTab);
-  const [type, setType] = React.useState<string>("Sales");
+  const [value, setValue] = React.useState(header.profileTab)
+  const [type, setType] = React.useState<string>('Sales')
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    dispatch(setState({ profileTab: newValue }));
-    setValue(newValue);
-  };
+    dispatch(setState({ profileTab: newValue }))
+    setValue(newValue)
+  }
   const handleType = (
     event: React.MouseEvent<HTMLElement>,
-    newType: string
+    newType: string,
   ) => {
-    setType((PrevVal) => (newType ? newType : PrevVal));
-  };
+    setType((PrevVal) => (newType ? newType : PrevVal))
+  }
 
   useEffect(() => {
-    dispatch(setState({ prevValue: header.value, value: 0 }));
-  }, []);
+    dispatch(setState({ prevValue: header.value, value: 0 }))
+  }, [dispatch, header.value])
 
   const onClickSavedItem = (savedType: string) => {
-    navigate("/view", {
+    navigate('/view', {
       state: {
         type: savedType,
-        item: savedType === "post" ? FavoritePost : FavoriteProduct,
-        id: "1",
+        item: savedType === 'post' ? FavoritePost : FavoriteProduct,
+        id: '1',
         editable: false,
       },
-    });
-  };
+    })
+  }
 
   return (
     <Box
       sx={{
-        width: "100%",
-        bgcolor: "background.paper",
-        marginTop: "1%",
-        position: "relative",
+        width: '100%',
+        bgcolor: 'background.paper',
+        marginTop: '1%',
+        position: 'relative',
       }}
     >
       <Hidden mdDown>
@@ -138,7 +138,7 @@ export function GalleryTab() {
           label={
             <>
               <GridViewSharp fontSize="small" />
-              <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+              <Typography sx={{ fontSize: 12, textTransform: 'none' }}>
                 Posts
               </Typography>
             </>
@@ -148,7 +148,7 @@ export function GalleryTab() {
           label={
             <>
               <LoyaltySharp fontSize="small" />
-              <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+              <Typography sx={{ fontSize: 12, textTransform: 'none' }}>
                 Sold
               </Typography>
             </>
@@ -158,7 +158,7 @@ export function GalleryTab() {
           label={
             <>
               <BookmarkSharp fontSize="small" />
-              <Typography sx={{ fontSize: 12, textTransform: "none" }}>
+              <Typography sx={{ fontSize: 12, textTransform: 'none' }}>
                 Saved
               </Typography>
             </>
@@ -200,66 +200,63 @@ export function GalleryTab() {
         </Hidden>
       </TabPanel>
     </Box>
-  );
+  )
 }
 
 type ImageGroupProps = {
-  posts: PostData[];
-  sales: SalesData[];
-  onClick: (type: string) => void;
-};
+  posts: PostData[]
+  sales: SalesData[]
+  onClick: (type: string) => void
+}
 const ImageGroup: FC<ImageGroupProps> = ({ posts, sales, onClick }) => {
+  const favPosts: PostData[] = posts.slice(0, 4)
+  const favSales: SalesData[] = sales.slice(0, 4)
+
   return (
     <Box
       style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-evenly",
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
       }}
     >
-      <div style={{ cursor: "pointer" }} onClick={() => onClick("post")}>
+      <div style={{ cursor: 'pointer' }} onClick={() => onClick('post')}>
         <ImageList cols={2} gap={0} sx={{ m: 1, border: 1, borderRadius: 2 }}>
-          {posts.map((item, i) => {
-            if (i < 4)
-              return (
-                <ImageListItem>
-                  <img
-                    src={`${item.images[0]}?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${item.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                    alt={item.title}
-                    loading="lazy"
-                    style={{ height: "5rem", width: "5rem" }}
-                  />
-                </ImageListItem>
-              );
-          })}
+          {favPosts.map((item, i) => (
+            <ImageListItem>
+              <img
+                src={`${item.images[0]}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+                style={{ height: '5rem', width: '5rem' }}
+              />
+            </ImageListItem>
+          ))}
         </ImageList>
         <ImageListItemBar sx={{ mx: 2 }} position="below" title="All Post" />
       </div>
-      <div style={{ cursor: "pointer" }} onClick={() => onClick("sale")}>
+      <div style={{ cursor: 'pointer' }} onClick={() => onClick('sale')}>
         <ImageList cols={2} gap={0} sx={{ m: 1, border: 1, borderRadius: 2 }}>
-          {sales.map((item, i) => {
-            if (i < 4)
-              return (
-                <ImageListItem>
-                  <img
-                    src={`${item.images[0]}?w=164&h=164&fit=crop&auto=format`}
-                    srcSet={`${item.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                    alt={item.title}
-                    loading="lazy"
-                    style={{ height: "5rem", width: "5rem" }}
-                  />
-                </ImageListItem>
-              );
-          })}
+          {favSales.map((item, i) => (
+            <ImageListItem>
+              <img
+                src={`${item.images[0]}?w=164&h=164&fit=crop&auto=format`}
+                srcSet={`${item.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                alt={item.title}
+                loading="lazy"
+                style={{ height: '5rem', width: '5rem' }}
+              />
+            </ImageListItem>
+          ))}
         </ImageList>
         <ImageListItemBar sx={{ mx: 2 }} position="below" title="All Sales" />
       </div>
     </Box>
-  );
-};
+  )
+}
 const UserProfile = () => {
-  const classes = useProfileStyles();
+  const classes = useProfileStyles()
   return (
     <Box>
       <Hidden mdDown>
@@ -274,7 +271,7 @@ const UserProfile = () => {
       </Hidden>
       <GalleryTab />
     </Box>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile

@@ -33,7 +33,7 @@ const AddPostAndProduct: React.FC = (props) => {
     } else {
       goBackNavigate(-1);
     }
-  }, [open]);
+  }, [goBackNavigate, open]);
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -48,7 +48,7 @@ const AddPostAndProduct: React.FC = (props) => {
   };
 
   const headerActionRight = () => {
-    if ((count === 1 && !value) || (count == 2 && value)) setOpen(false);
+    if ((count === 1 && !value) || (count === 2 && value)) setOpen(false);
     else setCount((prev) => prev + 1);
   };
 
@@ -80,7 +80,7 @@ const AddPostAndProduct: React.FC = (props) => {
         </Typography>
       }
       headerIcon={
-        (count === 1 && !value) || (count == 2 && value) ? <Done /> : <East />
+        (count === 1 && !value) || (count === 2 && value) ? <Done /> : <East />
       }
       headerAction={headerActionRight}
       fullScreen

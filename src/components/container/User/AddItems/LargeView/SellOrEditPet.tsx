@@ -1,20 +1,17 @@
 import React, { useEffect } from "react";
 import { Box, Typography, Card, Divider } from "@mui/material";
-import { useAddItemsStyle } from "../AddItemsStyle";
 import AlertDialog from "../../../../presentational/AlertDialog/ConfirmationDialog";
 import SwipeImage from "../../../../presentational/SwipeImage/ImageList";
 import AddItemHeader from "../AddItemHeader";
 import { AddItemBody, AddItemBodyNext } from "../AddItemsBody";
 import { KeywordData, AddMoreField, AddItemsProps } from "../AddItemProps";
 
-const SellPet: React.FC<AddItemsProps> = ({ setOpen, item }) => {
-  const classes = useAddItemsStyle();
+const SellPet: React.FC<AddItemsProps> = ({ setOpen, item }) => {  
 
   const [keywords, setKeyword] = React.useState<KeywordData[]>([]);
   const [keywordValue, setKeywordValue] = React.useState<string>("");
   const [next, setNext] = React.useState<boolean>(false);
-  const [alertDialog, setAlertDialog] = React.useState(false);
-  const [removeId, setRemoveId] = React.useState("");
+  const [alertDialog, setAlertDialog] = React.useState(false);  
   const [imageExceedText, setImageExceedText] = React.useState("");
   const [productImages, setProductImages] = React.useState<string[]>([]);
   const [moreInputs, setMoreInputs] = React.useState<AddMoreField[]>([]);

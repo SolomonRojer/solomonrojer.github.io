@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
 import { Box, Card, Divider, Typography } from "@mui/material";
-import { useAddItemsStyle } from "../AddItemsStyle";
 import SwipeImage from "../../../../presentational/SwipeImage/ImageList";
 import { AddItemBody } from "../AddItemsBody";
 import AddItemHeader from "../AddItemHeader";
 import { AddItemsProps, KeywordData } from "../AddItemProps";
 
-const SharePost: React.FC<AddItemsProps> = ({ setOpen }) => {
-  const classes = useAddItemsStyle();
+const SharePost: React.FC<AddItemsProps> = ({ setOpen }) => {  
 
   const [keywords, setKeyword] = React.useState<KeywordData[]>([]);
   const [keywordValue, setKeywordValue] = React.useState<string>("");

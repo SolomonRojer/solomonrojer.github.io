@@ -1,6 +1,6 @@
-import * as React from "react";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
+import * as React from 'react'
+import ImageList from '@mui/material/ImageList'
+import ImageListItem from '@mui/material/ImageListItem'
 import {
   ImageListItemBar,
   IconButton,
@@ -8,66 +8,69 @@ import {
   Fade,
   Chip,
   Avatar,
-} from "@mui/material";
-import { Delete, Edit, Star } from "@mui/icons-material";
-import { useProfileStyles } from "../Profile/UserProfileStyle";
-import { stringToColor } from "../../../../utils/common/StringToColor";
-import type { UserSalesProps } from "./userDataProps";
-import EditItem from "../EditSaleItem/EditItem";
-import { SalesData } from "../../../../utils/common/PropTypes";
-import { SaleInitialData } from "../../../../constants/Data/InitialData";
-import { Link, useNavigate } from "react-router-dom";
-import AlertDialog from "../../../presentational/AlertDialog/ConfirmationDialog";
+} from '@mui/material'
+import { Delete, Edit, Star } from '@mui/icons-material'
+import { useProfileStyles } from '../Profile/UserProfileStyle'
+import { stringToColor } from '../../../../utils/common/StringToColor'
+import type { UserSalesProps } from './userDataProps'
+import EditItem from '../EditSaleItem/EditItem'
+import { SalesData } from '../../../../utils/common/PropTypes'
+import { SaleInitialData } from '../../../../constants/Data/InitialData'
+import { Link, useNavigate } from 'react-router-dom'
+import AlertDialog from '../../../presentational/AlertDialog/ConfirmationDialog'
 
 const UserSales: React.FC<UserSalesProps> = ({
-  typeOfItem = "usersale",
+  typeOfItem = 'usersale',
   dataItems = [],
   cols = 4,
-  view = "md",
+  view = 'md',
 }) => {
-  const classes = useProfileStyles();
-  const navigate = useNavigate();
+  const classes = useProfileStyles()
+  const navigate = useNavigate()
 
-  const [open, setOpen] = React.useState(false);
-  const [item, setItem] = React.useState<SalesData>(SaleInitialData);
-  const [alertDialog, setAlertDialog] = React.useState(false);
-  const [removeId, setRemoveId] = React.useState("");
+  const [open, setOpen] = React.useState(false)
+  const [item, setItem] = React.useState<SalesData>(SaleInitialData)
+  const [alertDialog, setAlertDialog] = React.useState(false)
 
   const onClickEdit = (item: SalesData) => {
-    setOpen(true);
-    setItem(item);
-  };
+    setOpen(true)
+    setItem(item)
+  }
   const RemovePostConfirmation = (id: string) => {
-    setAlertDialog(true);
-  };
+    setAlertDialog(true)
+  }
 
   const RemovePost = () => {
     // remove with removeId
-    setAlertDialog(false);
-  };
+    setAlertDialog(false)
+  }
 
   const handleOnClickProduct = (item: SalesData) => {
-    view === "xs" &&
-      navigate("/view", {
-        state: { type: "sale", item: dataItems, id: "1", editable: true },
-      });
-  };
+    view === 'xs' &&
+      navigate('/view', {
+        state: { type: 'sale', item: dataItems, id: '1', editable: true },
+      })
+  }
 
   return (
     <div>
       <ImageList
         sx={{
-          width: "100%",
-          overflowY: "hidden",
-          marginBottom: view === "xs" ? "4rem" : 0,
+          width: '100%',
+          overflowY: 'hidden',
+          marginBottom: view === 'xs' ? '4rem' : 0,
         }}
         variant="quilted"
         cols={cols}
       >
         {dataItems.map((item, i) => (
-          <Fade in={true} style={{ transitionDelay: `${100 * i}ms` }} key={i}>
+          <Fade
+            in={true}
+            style={{ transitionDelay: view === 'md' ? `${100 * i}ms` : '0' }}
+            key={item.id}
+          >
             <ImageListItem key={item.title}>
-              {view === "md" ? (
+              {view === 'md' ? (
                 <Link to={`/viewproduct_/${item.id}`} target="_blank">
                   <img
                     src={`${item.images[0]}?w=248&fit=crop&auto=format`}
@@ -75,10 +78,10 @@ const UserSales: React.FC<UserSalesProps> = ({
                     alt={item.title}
                     loading="lazy"
                     style={{
-                      cursor: "pointer",
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
+                      cursor: 'pointer',
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
                     }}
                   />
                 </Link>
@@ -89,10 +92,10 @@ const UserSales: React.FC<UserSalesProps> = ({
                   alt={item.title}
                   loading="lazy"
                   style={{
-                    cursor: "pointer",
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    cursor: 'pointer',
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
                   }}
                   onClick={() => handleOnClickProduct(item)}
                 />
@@ -102,7 +105,7 @@ const UserSales: React.FC<UserSalesProps> = ({
                   title={
                     <Typography
                       sx={{ fontSize: 11 }}
-                      align={typeOfItem === "usersale" ? "left" : "right"}
+                      align={typeOfItem === 'usersale' ? 'left' : 'right'}
                     >
                       {item.title}
                     </Typography>
@@ -110,24 +113,24 @@ const UserSales: React.FC<UserSalesProps> = ({
                   subtitle={
                     <Typography
                       sx={{ fontSize: 13 }}
-                      align={typeOfItem === "usersale" ? "left" : "right"}
+                      align={typeOfItem === 'usersale' ? 'left' : 'right'}
                     >
                       {item.price}
                     </Typography>
                   }
                   position="bottom"
                   actionIcon={
-                    typeOfItem === "usersale" ? (
+                    typeOfItem === 'usersale' ? (
                       <>
                         <IconButton
-                          sx={{ color: "rgba(255,255,255,0.5)" }}
+                          sx={{ color: 'rgba(255,255,255,0.5)' }}
                           aria-label={`star ${item.title}`}
                           onClick={() => onClickEdit(item)}
                         >
                           <Edit />
                         </IconButton>
                         <IconButton
-                          sx={{ color: "rgba(255,255,255,0.5)" }}
+                          sx={{ color: 'rgba(255,255,255,0.5)' }}
                           aria-label={`star ${item.title}`}
                           onClick={() => RemovePostConfirmation(item.title)}
                         >
@@ -136,8 +139,8 @@ const UserSales: React.FC<UserSalesProps> = ({
                       </>
                     ) : (
                       <Chip
-                        onClick={() => navigate("/profile")}
-                        style={{ cursor: "pointer" }}
+                        onClick={() => navigate('/profile')}
+                        style={{ cursor: 'pointer' }}
                         avatar={
                           <Avatar
                             src={item?.profile}
@@ -153,11 +156,11 @@ const UserSales: React.FC<UserSalesProps> = ({
                             color="secondary"
                             sx={{
                               fontSize: 12,
-                              display: "flex",
-                              alignItems: "center",
+                              display: 'flex',
+                              alignItems: 'center',
                             }}
                           >
-                            {item?.userType === "admin" ? (
+                            {item?.userType === 'admin' ? (
                               <>
                                 <Typography
                                   sx={{ fontSize: 12 }}
@@ -172,11 +175,11 @@ const UserSales: React.FC<UserSalesProps> = ({
                             )}
                           </Typography>
                         }
-                        sx={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+                        sx={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
                       />
                     )
                   }
-                  actionPosition={typeOfItem === "usersale" ? "right" : "left"}
+                  actionPosition={typeOfItem === 'usersale' ? 'right' : 'left'}
                 />
               )}
             </ImageListItem>
@@ -192,7 +195,7 @@ const UserSales: React.FC<UserSalesProps> = ({
         />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserSales;
+export default UserSales

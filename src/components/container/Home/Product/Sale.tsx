@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react'
 import {
   Card,
   CardMedia,
@@ -11,7 +11,7 @@ import {
   CardActionArea,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
+} from '@mui/material'
 import {
   LocationOn,
   Star,
@@ -19,56 +19,59 @@ import {
   TurnedIn,
   Edit,
   Delete,
-} from "@mui/icons-material";
-import { Checkbox, Chip, Grid } from "@material-ui/core";
-import { useCollectionStyles } from "./HomeItemsStyle";
-import { stringToColor } from "../../../../utils/common/StringToColor";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import { SalesData } from "../../../../utils/common/PropTypes";
-import ImageCarousel from "../../../presentational/Carousel/ImageCarousel";
-import { Products } from "../../../../constants/Data/Products";
-import HomeContainer from "../HomeMain";
+} from '@mui/icons-material'
+import { Checkbox, Chip, Grid } from '@material-ui/core'
+import { useCollectionStyles } from './HomeItemsStyle'
+import { stringToColor } from '../../../../utils/common/StringToColor'
+import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
+import { SalesData } from '../../../../utils/common/PropTypes'
+import ImageCarousel from '../../../presentational/Carousel/ImageCarousel'
+import { Products } from '../../../../constants/Data/Products'
+import HomeContainer from '../HomeMain'
 
-const { innerWidth } = window;
+const { innerWidth } = window
 
 type SalesProps = {
-  view: string;
-  salesItems: SalesData[];
-  type?: boolean;
-};
+  view: string
+  salesItems: SalesData[]
+  type?: boolean
+}
 
 const RecipeReviewCard: React.FC<SalesProps> = ({
   view,
   salesItems,
   type = false,
 }) => {
-  const classes = useCollectionStyles();
-  const navigate = useNavigate();
+  const classes = useCollectionStyles()
+  const navigate = useNavigate()
 
   const viewProduct = (item: SalesData) => {
-    navigate("/viewproduct", { state: { item } });
-  };
+    navigate('/viewproduct', { state: { item } })
+  }
 
   const onClickEdit = (item: SalesData) => {
-    navigate("/add", { state: { item } });
-  };
+    navigate('/add', { state: { item } })
+  }
 
   return (
     <>
       {salesItems.map((item, i) => (
-        <Grid item md={3} sm={6} xs={12} key={i}>
-          <Fade in={true} style={{ transitionDelay: `${100 * i}ms` }}>
+        <Grid item md={3} sm={6} xs={12} key={item.id}>
+          <Fade
+            in={true}
+            style={{ transitionDelay: view === 'md' ? `${100 * i}ms` : "0" }}
+          >
             <Card>
               <CardContent className={classes.ProductContent1}>
                 <Chip
-                  onClick={() => navigate("/profile")}
+                  onClick={() => navigate('/profile')}
                   style={{
-                    backgroundColor: "rgba(0,0,0,0.02)",
-                    cursor: "pointer",
+                    backgroundColor: 'rgba(0,0,0,0.02)',
+                    cursor: 'pointer',
                     maxWidth:
-                      view === "md"
-                        ? "15rem"
+                      view === 'md'
+                        ? '15rem'
                         : innerWidth - (20 / 100) * innerWidth,
                   }}
                   avatar={
@@ -81,7 +84,7 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                     />
                   }
                   label={
-                    item.userType === "admin" ? (
+                    item.userType === 'admin' ? (
                       <Box>
                         <Typography variant="caption" color="info.main">
                           Pet-Tech
@@ -94,8 +97,8 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                       <Typography
                         style={{
                           maxWidth:
-                            view === "md"
-                              ? "13rem"
+                            view === 'md'
+                              ? '13rem'
                               : innerWidth - (20 / 100) * innerWidth,
                         }}
                         className={classes.UserName1}
@@ -120,7 +123,7 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                 )}
               </CardContent>
               <CardActionArea disableRipple disableTouchRipple>
-                {view === "md" ? (
+                {view === 'md' ? (
                   <Link to={`/viewproduct_/${item.id}`} target="_blank">
                     <CardMedia
                       className={classes.CardImage}
@@ -135,7 +138,7 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                       images={item.images}
                       width="100%"
                       Carouselheight="20rem"
-                      Imageheight="100%"
+                      Imageheight="90%"
                     />
                   </Box>
                 )}
@@ -145,7 +148,7 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                   <Box
                     style={{
                       marginTop:
-                        view === "xs" && item.images.length > 1 ? "-10%" : "0",
+                        view === 'xs' && item.images.length > 1 ? '-10%' : '0',
                     }}
                   >
                     <Typography variant="h6">{item.price}</Typography>
@@ -158,12 +161,12 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
                     checkedIcon={<TurnedIn color="primary" />}
                     style={{
                       marginTop:
-                        view === "xs" && item.images.length > 1 ? "-15%" : "0",
+                        view === 'xs' && item.images.length > 1 ? '-15%' : '0',
                     }}
                   />
                 </Box>
 
-                <span style={{ display: "flex", alignItems: "center" }}>
+                <span style={{ display: 'flex', alignItems: 'center' }}>
                   <LocationOn sx={{ fontSize: 15 }} color="disabled" />
                   <Typography variant="caption" color="text.secondary">
                     {item.location}
@@ -175,35 +178,35 @@ const RecipeReviewCard: React.FC<SalesProps> = ({
         </Grid>
       ))}
     </>
-  );
-};
+  )
+}
 
 export const Sale: React.FC<SalesProps> = ({
   view,
   salesItems,
   type = false,
 }) => {
-  const classes = useCollectionStyles();
+  const classes = useCollectionStyles()
   return (
-    <Grid container className={classes.root} spacing={view === "md" ? 2 : 0}>
+    <Grid container className={classes.root} spacing={view === 'md' ? 2 : 0}>
       <RecipeReviewCard view={view} salesItems={salesItems} type={type} />
     </Grid>
-  );
-};
+  )
+}
 
 const HomeSale = () => {
-  const classes = useCollectionStyles();
+  const classes = useCollectionStyles()
 
-  const theme = useTheme();
-  const isXS = useMediaQuery(theme.breakpoints.down("md"));
+  const theme = useTheme()
+  const isXS = useMediaQuery(theme.breakpoints.down('md'))
 
-  const className = isXS ? classes.TabContentXS : classes.TabContent;
+  const className = isXS ? classes.TabContentXS : classes.TabContent
 
   return (
     <HomeContainer className={className} type="sale">
-      <Sale view={isXS ? "xs" : "md"} salesItems={Products} />
+      <Sale view={isXS ? 'xs' : 'md'} salesItems={Products} />
     </HomeContainer>
-  );
-};
+  )
+}
 
-export default HomeSale;
+export default HomeSale
